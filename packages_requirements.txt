@@ -1,0 +1,9 @@
+pyhton3-pip
+build-essential
+livevent
+ncurses
+tmux
+neovim
+python-neovim
+python3-neovim
+redshift
