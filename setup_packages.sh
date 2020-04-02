@@ -24,26 +24,36 @@ while IFS= read -r line; do
 	iserror "$line"
 done < "$1"
 
+#<<<after this line, packages should be checked for updates or a better instalation method
+
+#Commented installing nodejs!!! You should install it by yourself
+#install nodejs and npm
+curl -sL "https://deb.nodesource.com/setup_10.x" | bash -
+iserror "badranx error: problem while curl nodejs"
+apt-get install -y nodejs 
+#apperantly npm is included
+iserror "badranx error: problem while installing nodejs and npm"
+
 #Python requirments
 #Jupyterlab requirements
 $PIP3_CMD  $PIP_REQUIREMENTS
 if [ $? -ne 0 ]; then
-	echo "badranx error: mistake installing python requirements"
+	echo >&2 "badranx error: mistake installing python requirements"
 else
-	
-	#the following plugin needs npm
+	#the following plugin needs npm. TODO:maybe prevent trying if !npm
 	jupyter labextension install jupyterlab_vim
 
-	iserror "jubyterlab_vim (plugin)"
+	iserror "badranx error: problem installing jubyterlab_vim (plugin)"
 fi
 
 #install neovim
 add-apt-repository ppa:neovim-ppa/unstable
-iserror("BadranX: problem with PPA:neovim")
+iserror "BadranX: problem with PPA:neovim"
 apt-get update
 apt-get install neovim
-iserror("BadranX: problem with installing neovim")
+iserror "BadranX: problem with installing neovim"
+
 #neovim Plugin manager (Vim-Plug)
-curl "-fLo" "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-iserror("BadranX: prolem with installing Vim-Plug for neovim")
+curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+iserror "BadranX: prolem with installing Vim-Plug for neovim"
 
