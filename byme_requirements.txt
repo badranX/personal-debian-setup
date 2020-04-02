@@ -1,0 +1,4 @@
+#list of good apps
+
+indicator StickyNotes
+steam
