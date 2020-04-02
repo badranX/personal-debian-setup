@@ -1,9 +1,18 @@
-pyhton3-pip
 build-essential
-livevent
-ncurses
+pkg-config
+python-dev
+python3-pip
 tmux
-neovim
 python-neovim
 python3-neovim
 redshift
+#
+#ignore all the comments after this line please
+#Start using apt-get build-dep ...to install all dependencies for the "source code package" !
+#this is depian specific!
+#mainly for matplotlib dependencies on debian [build-dep means "As root, install all dependencies for the package" by Kleist@stackexchange]
+#the first line is not a package but it will make *.sh start using apt-get build-dep 
+#build-dep
+python3-matplotlib 
+curl
+cmake
