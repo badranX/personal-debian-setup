@@ -3,7 +3,7 @@ LOGS="./files_mistakes.log"
 MyName="badranx"
 NVIM="$HOME/.config/nvim/"
 RedShift="$HOME/.config/redshift"
-BASHRC_APPEND="bashrc_append"
+APPEND_TO_BASHRC="bashrc_append"
 
 #print error message to LOGS
 iserror() {
@@ -12,14 +12,15 @@ iserror() {
 	fi
 }
 
-if grep -Fxq "$MyName" my_list.txt
+#check if .bashrc contain "badranx"
+if grep -Fxq "$MyName" "$HOME/.bashrc"
 then
-	cat file/"BASHRC_APPEND" | tee -a "$HOME/.bashrc"
+	cat "./file/APPEND_TO_BASHRC" | tee -a "$HOME/.bashrc"
 fi
 
 cp -f file/.tmux.conf "$HOME"
 iserror ".tmux.conf"
-mkdir -p $NVIM && cp -f  file/.init.vim $NVIM
+mkdir -p $NVIM && cp -f  "./file/.init.vim" $NVIM
 iserror "$NVIM/.init.vim"
-mkdir -p $RedShift && cp -f file/.redshift.conf $RedShift
+mkdir -p $RedShift && cp -f "./file/.redshift.conf" $RedShift
 iserror "$RedShift/.redshift.conf"
