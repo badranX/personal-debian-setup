@@ -1,4 +1,4 @@
-# Bash files set up  new machines!!
+# Bash files to setup my new machines!!
 
 
 ### Installing
