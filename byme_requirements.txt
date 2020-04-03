@@ -7,3 +7,6 @@ steam
 #super +/-:
 amixer -q -D pulse sset Master 5%%-
 amixer -q -D pulse sset Master 5%%+
+
+#ctrl+alt+u
+topterminal.sh.me

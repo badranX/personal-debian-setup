@@ -4,7 +4,7 @@ LOGS="./files_mistakes.log"
 MyName="badranx"
 NVIM="${HOME}/.config/nvim"
 RedShift="${HOME}/.config/redshift"
-
+USR_BIN= "/usr/bin"
 #The following method of appending to .bashrc was abandoned
 APPEND_TO_BASHRC="bashrc_append"
 
@@ -41,5 +41,8 @@ else
 	mkdir -p "$RedShift" && cp -f "./file/redshift.conf" "$RedShift"
 	iserror "${RedShift}/.redshift.conf"
 
+	#create command to move terminal on top (create a keybindings!)
+	chmod +x "./extra/topterminal.me.sh"
+	cp -f "./extra/topterminal.me.sh" "$USR_BIN"
 
 fi
