@@ -2,3 +2,8 @@
 
 indicator StickyNotes
 steam
+
+#keybindings
+#super +/-:
+amixer -q -D pulse sset Master 5%%-
+amixer -q -D pulse sset Master 5%%+
