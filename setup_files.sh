@@ -4,7 +4,7 @@ LOGS="./files_mistakes.log"
 MyName="badranx"
 NVIM="${HOME}/.config/nvim"
 RedShift="${HOME}/.config/redshift"
-USR_BIN= "/usr/bin"
+USR_BIN="/usr/bin"
 #The following method of appending to .bashrc was abandoned
 APPEND_TO_BASHRC="bashrc_append"
 

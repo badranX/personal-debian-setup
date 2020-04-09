@@ -1,5 +1,7 @@
+pip
 ipython
 jupyterlab==1.0.0
 #matplotlib should be already installed via Package manager
 numpy
 pandas
+matplotlib

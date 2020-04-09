@@ -1,5 +1,6 @@
 #!/bin/bash
 #assume you already downloaded nodejs
+REQUIREMENT_FILE="./packages_requirements.txt"
 PACKAGE_MANAGER_CMD="apt-get -yf install"
 PIP3_CMD="pip3 install -Ur"
 LOGS="./packages_mistakes.log"
@@ -19,10 +20,11 @@ rm -f $LOGS
 
 while IFS= read -r line; do
 	[[ $line = \#* ]] && continue
-	[[ $line = *"build-dep" ]] && PACKAGE_MANAGER_CMD="apt-get build-dep -yf install"
+	#The following line was needed for installing matplotlib!
+	#[[ $line = *"build-dep" ]] && PACKAGE_MANAGER_CMD="apt-get build-dep -yf install"
 	$PACKAGE_MANAGER_CMD  $line
 	iserror "$line"
-done < "$1"
+done < "$REQUIREMENT_FILE"
 
 #<<<after this line, packages should be checked for updates or a better instalation method
 
@@ -53,6 +55,8 @@ apt-get update
 apt-get install neovim
 iserror "BadranX: problem with installing neovim"
 
+#exit sudo!
+sudo -K
 #neovim Plugin manager (Vim-Plug)
 curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 iserror "BadranX: prolem with installing Vim-Plug for neovim"

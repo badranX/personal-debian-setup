@@ -1,8 +1,7 @@
 #!/bin/bash
 
-#If <Program> window open, bring to foreground
-#otherwise, open <Program> 
-#REASON: ctrl+alt+t is annoying and creates a new terminal every time. With this I can create many shortcuts
+#If <Program> window was already open, bring to foreground. Otherwise, open <Program>
+#REASON: ctrl+alt+t is annoying and creates a new terminal every time.
 
 if [ $# -eq 0 ]; then
 	echo "you should provide a program name"
